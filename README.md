@@ -1,7 +1,7 @@
 # WHO Covid-19 Statistics
 
 This repository contains data files that represent the total and within-China case counts for COVID-19 
-cases extracted from the WHO daily situation reports. In addition, I digitized the graph from the original
+cases extracted from the [WHO daily situation reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports). In addition, I digitized the graph from the original
 NY Times article on growth rates for comparison.
 
 I also include a very simple visualization of total and incremental case counts. On the graph with the total
