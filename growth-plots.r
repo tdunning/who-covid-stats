@@ -1,7 +1,6 @@
 # data from https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports
-# LAST POINT WAS FROM https://bnonews.com/index.php/2020/02/the-latest-coronavirus-cases/
-# LAST POINT WAS FROM https://www.reuters.com/article/us-china-health/coronavirus-cases-outside-china-could-be-spark-for-bigger-fire-says-who-idUSKBN20402G
 who = read.csv('who.csv')
+who$china = who$cases - who$outside
 
 who$date = as.POSIXlt("21-Jan-2020", format="%d-%b-%Y") + 24*3600*(1:dim(who)[1]-1)
 
@@ -22,6 +21,8 @@ z$x = z$x - 19
 # and plot
 
 plot(cases/1000 ~ date, who, type='b', xlab='Day', ylab='Cases (x1000)', log='y', ylim=c(0.1,1.3*max(who$cases/1000)))
+points(outside/1000 ~ date, who, type='b', col='red')
+points(china/1000 ~ date, who, type='b', col='green')
 #lines(y~x, z, col='red', type='b')
 #legend(2, 14000, legend=c("NYT", "WHO"), fill=c('red','black'), border=NA)
 lines(as.POSIXlt("20-Jan-2020", format="%d-%b-%Y")+(1:11)*24*3600, 160*exp((1:11)/2.4)/1000, col='red')
