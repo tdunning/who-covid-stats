@@ -29,11 +29,11 @@ lines(as.POSIXlt("20-Jan-2020", format="%d-%b-%Y")+(1:11)*24*3600, 160*exp((1:11
 lines(1:11, 160*exp((1:11)/2.4)/1000, col='red')
 lines(as.POSIXlt("20-Jan-2020", format="%d-%b-%Y")+(8:19)*24*3600, 1100*exp((8:19)/5)/1000, col='green',lwd=2)
 
-legend(as.POSIXlt("21-Jan-2020", format="%d-%b-%Y"), 150, fill=c('red', 'green'), 
+legend(as.POSIXlt("21-Jan-2020", format="%d-%b-%Y"), 500, fill=c('red', 'green'), 
        legend=c("Early growth", "After first containment measures"))
 
 dev.new()
-plot(new ~ date, who, xlab="Day", ylab="New cases", type='b', ylim=c(0,5000), cex=0.7)
+plot(new ~ date, who, xlab="Day", ylab="New cases", type='b', ylim=c(0,50000), cex=0.7)
 polygon(c(who$date, max(who$date), min(who$date)), c(who$new.outside,0,0), col=rgb(1,0,0,alpha=0.4), border=F)
 
 polygon(c(who$date, max(who$date), min(who$date)), c(who$new - who$new.outside,0,0), col=rgb(0,1,0,alpha=0.3), border=F)
@@ -41,4 +41,4 @@ polygon(c(who$date, max(who$date), min(who$date)), c(who$new - who$new.outside,0
 lines(who$date, who$new.outside, type='b', cex=0.4, pch=24, col=rgb(1,0,0), bg=rgb(1,0,0))
 lines(who$date, who$new - who$new.outside, type='b', cex=0.4, pch=23, col=rgb(0,1,0), bg=rgb(0,1,0))
 
-legend(as.POSIXlt("21-Jan-2020", format="%d-%b-%Y"),5000, pch=c(21,24,23), legend=c("Total", "Non-China", "China"), pt.bg=c('white', rgb(1,0,0,alpha=0.7), rgb(0,1,0,alpha=0.9)), col=c('black', rgb(1,0,0,alpha=0.7), rgb(0,1,0,alpha=0.9)))
+legend(as.POSIXlt("21-Jan-2020", format="%d-%b-%Y"),50000, pch=c(21,24,23), legend=c("Total", "Non-China", "China"), pt.bg=c('white', rgb(1,0,0,alpha=0.7), rgb(0,1,0,alpha=0.9)), col=c('black', rgb(1,0,0,alpha=0.7), rgb(0,1,0,alpha=0.9)))
